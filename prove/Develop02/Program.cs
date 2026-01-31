@@ -37,7 +37,7 @@ class Program
 
                 // then get the date from the user? The example looked fancier but we were told
                 // to just leave it as a string
-                Console.Write("What is today's date?");
+                Console.Write("What is today's date? ");
                 string entryDate = Console.ReadLine();
                 todaysEntry._date = entryDate;
 
@@ -45,7 +45,7 @@ class Program
                 Console.WriteLine(journalPrompt);
 
                 // entry
-                Console.Write(">");
+                Console.Write("> ");
                 string userEntryInput = Console.ReadLine();
                 todaysEntry._userEntry = userEntryInput;
             }
@@ -62,14 +62,15 @@ class Program
             {
                 // I have no idea what the difference between load and display is here
                 // okay, so load is just to pull the save txt file out of the ether and make it usable again
-                Console.Write("What is the file name?");
+                Console.Write("What is the file name? ");
                 string filename = Console.ReadLine();
+                journal1.ReadFileToEntry(filename);
             }
             else if (menuInput == "4")
             {
                 // call the save to file code here, this looks intimidating but it should
                 // all work as long as I remember to put parameters in right
-                Console.Write("What is the file name?");
+                Console.Write("What is the file name? ");
                 string filename = Console.ReadLine();
                 journal1.WriteEntryToFile(filename, journal1._entries);
             }
