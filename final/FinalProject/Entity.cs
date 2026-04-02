@@ -5,7 +5,7 @@ public abstract class Entity
     private string _name;
     private int _maxHP;
     private int _HP;
-    private string _condition;
+    private string _condition = "none";
     private int _conditionCounter = 0;
     private int _attackPower;
 
@@ -70,6 +70,13 @@ public abstract class Entity
         {
             Console.WriteLine($"{_name} is no longer {_condition}.");
         }
+    }
+    public abstract string HitDie();
+    public virtual int Attack()
+    {
+        // this is just a dummy method so the small bad guys can access it, but
+        // will be either overridden or ignored by everyone
+        return 1;
     }
     // how is attack vs defense going to work? dice roll just in fight maybe? unless I want
     // enemies to have lower odds of success than players. But I guess I could just make multiple "dice" in there?
