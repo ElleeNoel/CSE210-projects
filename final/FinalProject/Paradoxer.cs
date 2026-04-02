@@ -5,7 +5,7 @@ public class Paradoxer : Entity
     string _attackText1;
     string _attackText2;
     
-    public Paradoxer() : base("Paradoxer", 12, 3)
+    public Paradoxer() : base("PARADOXER", 12, 3)
     {
         _flavText1 = "Paradoxer doesn't care if it's possible or not.";
         _flavText2 = "Paradoxer wants you to join his infinite loop.";

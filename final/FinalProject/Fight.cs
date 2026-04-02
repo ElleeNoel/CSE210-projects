@@ -134,7 +134,7 @@ public class Fight
                             int damage = _player.KronixSwordATK(target);
                             foreach (Entity creature in _fightParticipants)
                             {
-                                if (creature.GetName() == target)
+                                if (creature.GetName() == target.ToUpper())
                                 {
                                     creature.TakeDamage(damage);
                                     break;
@@ -154,7 +154,7 @@ public class Fight
                                 string condition = _player.GetWatch().StopEnemy();
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                if (creature.GetName() == target)
+                                if (creature.GetName() == target.ToUpper())
                                     {
                                     creature.GainCondition(target, condition);
                                     break;
@@ -167,7 +167,7 @@ public class Fight
                                 string condition = _player.GetWatch().RewindEnemy();
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                if (creature.GetName() == target)
+                                if (creature.GetName() == target.ToUpper())
                                     {
                                     creature.GainCondition(target, condition);
                                     break;
@@ -179,7 +179,7 @@ public class Fight
                                 _player.WatchMagicCost("WITHER");
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                if (creature.GetName() == target)
+                                if (creature.GetName() == target.ToUpper())
                                     {
                                     int magicDamage = _player.WitherAttack(creature.GetName(), creature.GetMaxHP());
                                     creature.TakeDamage(magicDamage);
@@ -244,7 +244,7 @@ public class Fight
                                 int damage = _player.EmilyMeleeATK(target);
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                    if (creature.GetName() == target)
+                                    if (creature.GetName() == target.ToUpper())
                                     {
                                         creature.TakeDamage(damage);
                                         break;
@@ -293,7 +293,7 @@ public class Fight
                                 int damage = _player.JulianGunATK(target);
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                    if (creature.GetName() == target)
+                                    if (creature.GetName() == target.ToUpper())
                                     {
                                         creature.TakeDamage(damage);
                                         break;
@@ -307,7 +307,7 @@ public class Fight
                                 int damage = _player.JulianMeleeATK(target);
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                    if (creature.GetName() == target)
+                                    if (creature.GetName() == target.ToUpper())
                                     {
                                         creature.TakeDamage(damage);
                                         break;
@@ -355,7 +355,7 @@ public class Fight
                                 string target = Console.ReadLine();
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                    if (creature.GetName() == target)
+                                    if (creature.GetName() == target.ToUpper())
                                     {
                                         _player.HubertInspect(target);
                                         break;
@@ -377,7 +377,7 @@ public class Fight
                                 int damage = _player.HubertLightningSpell(target);
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                    if (creature.GetName() == target)
+                                    if (creature.GetName() == target.ToUpper())
                                     {
                                         creature.TakeDamage(damage);
                                         break;
@@ -391,7 +391,7 @@ public class Fight
                                 int damage = _player.HubertMeleeATK(target);
                                 foreach (Entity creature in _fightParticipants)
                                 {
-                                    if (creature.GetName() == target)
+                                    if (creature.GetName() == target.ToUpper())
                                     {
                                         creature.TakeDamage(damage);
                                         break;

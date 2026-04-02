@@ -4,7 +4,7 @@ public class TickTock : Entity
     string _flavText2;
     string _attackText1;
     
-    public TickTock() : base("Tick-Tock", 7, 2)
+    public TickTock() : base("TICK-TOCK", 7, 2)
     {
         _flavText1 = "Tick-Tock won't stop ticking at you.";
         _flavText2 = "Tick-Tock wants revenge for all the time you've killed.";

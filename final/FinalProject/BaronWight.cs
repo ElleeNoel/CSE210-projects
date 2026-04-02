@@ -5,7 +5,7 @@ public class BaronWight : Entity
     private int _attackChargeCounter = -1;
     private List<string> attackList = new List<string>();
     private List<string> smallEnemies = new List<string>();
-    public BaronWight() : base("Baron Wight", 200, 6)
+    public BaronWight() : base("BARON WIGHT", 200, 6)
     {
         // need to write some flavor text. I think the basical "flav text" is displaying
         // at the top of the turn, so it's up while you're picking what you'll do.
