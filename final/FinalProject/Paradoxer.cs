@@ -40,7 +40,7 @@ public class Paradoxer : Entity
             return _attackText2;
         }
     }
-    public int Attack()
+    public override int Attack()
     {
         Console.WriteLine(GetAttackText());
         string roll = HitDie();
@@ -68,7 +68,7 @@ public class Paradoxer : Entity
                 SetConditionCounter(1);
             }
     }
-    public string HitDie()
+    public override string HitDie()
     {
         Random random = new Random();
         List<string> enemyHitDie = new List<string>();
