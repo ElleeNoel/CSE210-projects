@@ -14,11 +14,13 @@ public class BaronWight : Entity
         _flavText1 = "It all comes down to this.";
         attackList.Add("melee attack");
         attackList.Add("melee attack");
+        attackList.Add("make new friends");
         attackList.Add("time freeze attack");
         attackList.Add("charged attack");
         attackList.Add("make new friends");
         attackList.Add("melee attack");
         attackList.Add("time freeze attack");
+        attackList.Add("make new friends");
         attackList.Add("melee attack");
         attackList.Add("make new friends");
         smallEnemies.Add("Tick-Tock");
@@ -28,6 +30,10 @@ public class BaronWight : Entity
     public int GetChargeCount()
     {
         return _attackChargeCounter;
+    }
+    public void SetChargeCount(int countDown)
+    {
+        _attackChargeCounter = countDown;
     }
     public string GetFlavorText()
     {
@@ -58,7 +64,7 @@ public class BaronWight : Entity
     public string PickAttack()
     {
        Random random = new Random();
-       int randomIndex = random.Next(0, 8);
+       int randomIndex = random.Next(0, 10);
        string selectedAttack = attackList[randomIndex];
        // call the stuff to do the attack in fight
        return selectedAttack;
@@ -69,7 +75,7 @@ public class BaronWight : Entity
         string roll = HitDie();
         if (roll == "hit")
         {
-            Console.WriteLine($"He succeeds! You take {GetAttackDamage} damage.");
+            Console.WriteLine($"He succeeds! You take {GetAttackDamage()} damage.");
             return GetAttackDamage();
         }
         else
@@ -82,16 +88,24 @@ public class BaronWight : Entity
     public int ChargedAttack()
     {
         // check charge value in fight, if it's -1 it's able to pick an attack
-        int ChargedAttackDamage =0;
+        int ChargedAttackDamage;
         if (_attackChargeCounter == -1)
         {
+            Console.WriteLine("Baron Wight begins charging his temporal laser attack!");
             _attackChargeCounter = 2;
+            ChargedAttackDamage = 0;
+            return ChargedAttackDamage;
         }
         else if (_attackChargeCounter == 0)
         {
             ChargedAttackDamage = 12;
+            return ChargedAttackDamage;
         }
-        return ChargedAttackDamage;
+        else
+        {
+            ChargedAttackDamage = 0;
+            return ChargedAttackDamage;
+        }
     }
     public string TimeFreezeATK()
     {
@@ -105,16 +119,18 @@ public class BaronWight : Entity
        string selectedEnemy = smallEnemies[randomIndex];
        if (selectedEnemy == "Tick-Tock")
         {
+            Console.WriteLine("Baron Wight summoned a Tick-Tock!");
             TickTock tickTock = new TickTock();
             return tickTock;
         }
         else
         {
+            Console.WriteLine("Baron Wight summoned a Paradoxer!");
             Paradoxer paradoxer = new Paradoxer();
             return paradoxer;
         }
     }
-    public override void GainCondition(string effect, string name)
+    public override void GainCondition(string name, string effect)
     {
         // so basically I need to figure out what I want the odds to be of success to
         // stun this guy. is 50/50 too easy? 1/3 maybe? randomly pick from numbers, then
@@ -142,15 +158,17 @@ public class BaronWight : Entity
             Console.WriteLine("It didn't work!");
         }
     }
-    public string HitDie()
+    public override string HitDie()
     {
         Random random = new Random();
         List<string> enemyHitDie = new List<string>();
         enemyHitDie.Add("hit");
         enemyHitDie.Add("hit");
         enemyHitDie.Add("hit");
+        enemyHitDie.Add("hit");
+        enemyHitDie.Add("hit");
         enemyHitDie.Add("miss");
-        int randomNumber = random.Next(0,3);
+        int randomNumber = random.Next(0,5);
         string roll = enemyHitDie[randomNumber];
         return roll;
     }
